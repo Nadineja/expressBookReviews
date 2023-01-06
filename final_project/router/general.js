@@ -21,7 +21,11 @@ public_users.post("/register", (req,res) => {
           return res.status(404).json({message: "Must provide username and password"});
       }
   });
+  
+  
+//only registered users can login
 
+  
 function getBooks() {
     return new Promise((resolve, reject) => {
         resolve(books);

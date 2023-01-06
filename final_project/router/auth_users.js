@@ -17,15 +17,29 @@ let users = [{
 
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
-const userMatches = users.filter((user) => user.username === username);
-    return userMatches.length > 0;
-}
+    let userMatched = users.filter((user) =>{
+        return user.username === username
+    });
+    if (userMatched.length > 0){
+        return true;
+    } else {
+        return false;
+    }
+  }  
+
 
 const authenticatedUser = (username,password)=>{ //returns boolean
 //write code to check if username and password match the one we have in records.
-const matchingUsers = users.filter((user) => user.username === username && user.password === password);
-    return matchingUsers.length > 0;
-}
+    let matchingUsers = users.filter((user) =>{
+      return (user.username === username && user.password === password)
+    });
+    if (matchingUsers.length > 0){
+        return true;
+    } else {
+        return false;
+    }
+  }
+
 
 //only registered users can login
 regd_users.post("/login", (req,res) => {
@@ -44,6 +58,7 @@ regd_users.post("/login", (req,res) => {
       return res.status(208).json({message: "Invalid username or password"});
   }
 });
+
 
 // Add a book review
 regd_users.put("/auth/review/:isbn", (req, res) => {
