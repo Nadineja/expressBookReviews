@@ -38,8 +38,11 @@ const authenticatedUser = (username,password)=>{ //returns boolean
     } else {
         return false;
     }
-  }
+}
 
+regd_users.get("/users", (req, res) => {
+    res.send(users)
+})
 
 //only registered users can login
 regd_users.post("/login", (req,res) => {
@@ -90,3 +93,4 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
 module.exports.authenticated = regd_users;
 module.exports.isValid = isValid;
 module.exports.users = users;
+module.exports.authenticatedUser = authenticatedUser;

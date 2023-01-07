@@ -23,7 +23,7 @@ public_users.post("/register", (req,res) => {
   });
   
   
-//only registered users can login
+
 
   
 function getBooks() {
